@@ -1,18 +1,15 @@
 package org.lessons.java.shop;
 
-import java.util.Random;
+import java.math.BigDecimal;
 
 public class Main {
     public static void main(String[] args) {
 
-        Random rn = new Random();
+        Prodotto smartphone = new Prodotto("iPhone 17 pro", new BigDecimal("1129.99"), "L'iPhone migliore di sempre",
+                new BigDecimal("0.22"));
 
-        int generatedCode = rn.nextInt(9999) + 1;
-
-        Prodotto smartphone = new Prodotto(generatedCode, "iPhone 17 pro", 1129.99f);
-
-        smartphone.extendedName();
-        smartphone.basePrice();
-        smartphone.finalPrice();
+        System.out.println(smartphone.extendedName());
+        System.out.println(smartphone.basePrice());
+        System.out.println(smartphone.finalPrice());
     }
 }
