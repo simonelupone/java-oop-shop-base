@@ -12,19 +12,25 @@ public class Prodotto {
     private BigDecimal price;
     private BigDecimal vat;
 
-    public Prodotto(String name, BigDecimal price, String description, BigDecimal vat) {
-        Random rn = new Random();
+    public Prodotto(String name, String brand, BigDecimal price, String description, BigDecimal vat) {
 
-        this.code = rn.nextInt(9999);
+        this.code = randomNumber(9999);
         this.name = name;
+        this.brand = brand;
+        this.description = description;
         this.price = price;
 
-        this.description = description;
         this.vat = vat;
     }
 
     public Prodotto() {
-        this("Nome prodotto", new BigDecimal("1.00"), "Descrizione generica", new BigDecimal("0.22"));
+        this("Nome prodotto", "Nome brand", new BigDecimal("1.00"), "Descrizione generica", new BigDecimal("0.22"));
+    }
+
+    // method to set a random code
+    protected static int randomNumber(int bound) {
+        Random rn = new Random();
+        return rn.nextInt(bound);
     }
 
     // getters
