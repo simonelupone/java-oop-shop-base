@@ -23,6 +23,10 @@ public class Prodotto {
         this.vat = vat;
     }
 
+    public Prodotto() {
+        this("Nome prodotto", new BigDecimal("1.00"), "Descrizione generica", new BigDecimal("0.22"));
+    }
+
     // getters
     public int getCode() {
         return this.code;
@@ -48,6 +52,38 @@ public class Prodotto {
         return this.vat;
     }
 
+    // setters
+    public void setName(String name) {
+        if (name != null) {
+            this.name = name;
+        }
+    }
+
+    public void setBrand(String brand) {
+        if (brand != null) {
+            this.brand = brand;
+        }
+    }
+
+    public void setDescription(String description) {
+        if (description != null) {
+            this.description = description;
+        }
+    }
+
+    public void setPrice(BigDecimal price) {
+        if (price.compareTo(BigDecimal.ZERO) > 0) {
+            this.price = price;
+        }
+    }
+
+    public void getVat(BigDecimal vat) {
+        if (vat.compareTo(BigDecimal.ZERO) > 0) {
+            this.vat = vat;
+        }
+    }
+
+    // utility methods
     public BigDecimal finalPrice() {
         if (price != null && vat != null) {
             return price.add(price.multiply(vat).setScale(2, RoundingMode.DOWN));
